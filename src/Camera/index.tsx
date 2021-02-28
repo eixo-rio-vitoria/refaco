@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Image } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { Container } from './styles';
+import {
+	Container,
+	ModalContainer,
+	ModalTitle,
+	ModalImg,
+	ModalText,
+} from './styles';
 import Modal from 'react-native-modal';
+import SprayImg from '../../assets/spray.jpg';
 
 export default function App() {
 	const [hasPermission, setHasPermission] = useState(null as any);
 	const [scanned, setScanned] = useState(false);
+	const [scannedData, setscannedData] = useState('');
 
 	useEffect(() => {
 		(async () => {
@@ -19,7 +27,7 @@ export default function App() {
 
 	const handleBarCodeScanned = ({ type, data }: any) => {
 		setScanned(true);
-		alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+		setscannedData(data);
 	};
 
 	if (hasPermission === null) {
@@ -37,13 +45,12 @@ export default function App() {
 			/>
 			{scanned && (
 				<Modal isVisible={true}>
-					<View style={{ flex: 1 }}>
-						<Text>I am the modal content!</Text>
-					</View>
-					<Button
-						title={'Tap to Scan Again'}
-						onPress={() => setScanned(false)}
-					/>
+					<ModalContainer style={{ flex: 1 }}>
+						<ModalTitle>Item escaneado</ModalTitle>
+						<Text>Confirme o escaneamento</Text>
+						<ModalImg source={SprayImg} />
+						<ModalText>Vaselina Spray Mundial Prime | 120g</ModalText>
+					</ModalContainer>
 				</Modal>
 			)}
 		</Container>

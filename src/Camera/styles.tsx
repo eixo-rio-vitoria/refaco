@@ -17,3 +17,19 @@ export const ModalTitle = styled.Text`
 	color: black;
 	font-weight: bold;
 `;
+
+export const ModalImg = styled.Image`
+	margin-top: 15px;
+	width: 300px;
+	height: 300px;
+	border-color: #d3d3d3;
+	border-width: 1px;
+	border-radius: 12px;
+`;
+
+export const ModalText = styled.Text`
+	margin-top: 10px;
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+`;
