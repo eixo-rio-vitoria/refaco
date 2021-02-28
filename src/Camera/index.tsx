@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Container } from './styles';
+import Modal from 'react-native-modal';
 
 export default function App() {
 	const [hasPermission, setHasPermission] = useState(null as any);
@@ -35,7 +36,15 @@ export default function App() {
 				style={StyleSheet.absoluteFillObject}
 			/>
 			{scanned && (
-				<Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />
+				<Modal isVisible={true}>
+					<View style={{ flex: 1 }}>
+						<Text>I am the modal content!</Text>
+					</View>
+					<Button
+						title={'Tap to Scan Again'}
+						onPress={() => setScanned(false)}
+					/>
+				</Modal>
 			)}
 		</Container>
 	);
