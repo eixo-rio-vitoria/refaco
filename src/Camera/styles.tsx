@@ -5,9 +5,10 @@ export const Container = styled.View`
 `;
 
 export const ModalContainer = styled.View`
-	flex: 0.7;
+	flex: 0.8;
 	background-color: white;
 	align-items: center;
+	justify-content: space-evenly;
 	border-radius: 12px;
 `;
 
@@ -32,4 +33,19 @@ export const ModalText = styled.Text`
 	font-size: 15px;
 	color: black;
 	font-weight: bold;
+`;
+
+export const ConfirmBtn = styled.TouchableOpacity`
+	width: 200px;
+	height: 50px;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 12px;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const ConfirmBtnText = styled.Text`
+	font-size: 15px;
+	color: black;
 `;

@@ -7,6 +7,8 @@ import {
 	ModalTitle,
 	ModalImg,
 	ModalText,
+	ConfirmBtn,
+	ConfirmBtnText,
 } from './styles';
 import Modal from 'react-native-modal';
 import SprayImg from '../../assets/spray.jpg';
@@ -50,6 +52,10 @@ export default function App() {
 						<Text>Confirme o escaneamento</Text>
 						<ModalImg source={SprayImg} />
 						<ModalText>Vaselina Spray Mundial Prime | 120g</ModalText>
+
+						<ConfirmBtn onPress={() => setScanned(false)}>
+							<ConfirmBtnText>Adicionar item</ConfirmBtnText>
+						</ConfirmBtn>
 					</ModalContainer>
 				</Modal>
 			)}
